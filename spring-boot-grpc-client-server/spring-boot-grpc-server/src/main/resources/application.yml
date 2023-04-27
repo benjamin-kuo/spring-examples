@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: SpringGrpcServer
+
+server:
+  port: 8811
+
+grpc:
+  server:
+    port: 9090
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        sql: DEBUG
