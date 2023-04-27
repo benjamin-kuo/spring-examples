@@ -1,0 +1,22 @@
+//使用 proto3 語法 ,未指定則使用proto2
+syntax = "proto3";
+
+// 透過 command 生成 proto 映對的 java class
+// cd /spring-boot-grpc-basic
+// protoc --proto_path=src\ --java_out=src/main/java src/main/resources/proto/demo.proto
+
+//生成 proto 文件所在包路徑
+package com.bk.sample.protobuf.proto;
+
+//生成 proto 文件所在包路徑
+option java_package = "com.bk.example.protobuf.proto";
+
+//生成 proto 文件名
+option java_outer_classname = "DemoProto";
+
+message Demo{
+  //自身屬性
+  int32 id = 1;
+  string code = 2;
+  string name = 3;
+}

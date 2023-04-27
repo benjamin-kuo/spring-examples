@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: SpringExample
+
+server:
+  port: 8811
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        sql: DEBUG
