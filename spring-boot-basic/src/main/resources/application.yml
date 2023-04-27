@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: SpringBasic
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        sql: DEBUG
