@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: SpringRedis
+
+  redis:
+    database: 11
+    host: 192.168.0.200
+    port: 6379
+    password:
+    timeout: 60000
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        min-idle: 0
+
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        type: trace
+#        sql: DEBUG

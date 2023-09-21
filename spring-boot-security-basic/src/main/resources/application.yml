@@ -1,9 +1,12 @@
 spring:
   application:
-    name: SpringBasicDev
+    name: SpringSecurityBasic
+
+  thymeleaf:
+    cache: false
 
 server:
-  port: 8090
+  port: 8080
 
 logging:
   level:
