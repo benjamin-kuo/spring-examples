@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: SpringRabbitMqDev
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        sql: DEBUG

@@ -24,8 +24,7 @@ public class RedisTopicPubSubService implements MessageListener {
   @Autowired
   private ChannelTopic customChannelTopic;
 
-
-  // 收訊息, 所有 listen 的都會收到訊息, 若要只執行一次, 則要額外做 lock
+  // 收訊息, 所有 listener 的都會收到訊息, 若要只執行一次, 則要額外做 lock
   @Override
   public void onMessage(Message message, byte[] pattern) {
     String actionKey = new String(message.getBody(), StandardCharsets.UTF_8);

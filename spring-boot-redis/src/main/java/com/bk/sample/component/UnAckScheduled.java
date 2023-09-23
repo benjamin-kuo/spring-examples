@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import com.bk.sample.service.RedisStreamService;
 import com.bk.sample.util.RedisLock;
 
 @Component
@@ -20,6 +20,9 @@ public class UnAckScheduled {
     @Autowired(required = false)
     RedisTemplate redisTemplate;
 
+    @Autowired
+    RedisStreamService redisStreamService;
+
     private final String LOCK_KEY = "DO-ACK";
 
     private static final String CRON_EVERY_30_SECONDS = "*/20 * * * * *";
@@ -28,6 +31,10 @@ public class UnAckScheduled {
     public void scheduled() {
         if(RedisLock.tryLock(redisTemplate, LOCK_KEY, "LOCK", 60L)){
             log.info("scheduled in {}", applicationPort);
+
+            // 重新處理任務
+            redisStreamService.doResetUnAck();
+
             waiting(15);
             RedisLock.unlock(redisTemplate, LOCK_KEY);
         }else{

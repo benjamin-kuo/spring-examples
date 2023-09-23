@@ -4,7 +4,6 @@ spring:
   application:
     name: SpringRedisDev
 
-
   redis:
     database: 0
     host: 127.0.0.1

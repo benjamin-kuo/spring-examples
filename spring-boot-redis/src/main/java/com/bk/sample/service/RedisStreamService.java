@@ -131,4 +131,3 @@ public class RedisStreamService implements StreamListener<String, ObjectRecord<S
     }
   }
 }
-

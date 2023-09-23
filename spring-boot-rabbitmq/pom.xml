@@ -9,14 +9,14 @@
     <relativePath/>
   </parent>
 
+  <artifactId>spring-boot-rabbitmq</artifactId>
+  <name>spring-boot-rabbitmq</name>
+  <description>SpringBase-2.7.10</description>
+
   <properties>
     <slf4j.version>1.7.36</slf4j.version>
     <lombok.version>1.18.26</lombok.version>
   </properties>
-
-  <artifactId>spring-boot-redis</artifactId>
-  <name>spring-boot-redis</name>
-  <description>SpringBase-2.7.10</description>
 
   <dependencies>
     <dependency>
@@ -35,11 +35,9 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <!-- add the junit dependency here -->
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.7.0</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -61,14 +59,20 @@
     </dependency>
 
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-redis</artifactId>
-    </dependency>
-
-    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
+    </dependency>
+
+    <!--dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+      <version>2.5.3</version>
+    </dependency-->
+
+    <dependency>
+      <groupId>org.springframework.amqp</groupId>
+      <artifactId>spring-rabbit</artifactId>
     </dependency>
 
   </dependencies>

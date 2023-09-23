@@ -38,7 +38,7 @@ public class RedisStreamComponent {
   }
 
   /**
-   * 從隊列中讀取指定範圍消息
+   * 從Queue中讀取指定範圍消息
    *
    * @param key       stream key
    * @param recordIds record id set
@@ -94,7 +94,7 @@ public class RedisStreamComponent {
   }
 
   /**
-   * 查詢隊列中pending消息(已讀取ack未確認)
+   * 查詢Queue中pending消息(已讀取ack未確認)
    *
    * @param key stream key
    * @param group stream group

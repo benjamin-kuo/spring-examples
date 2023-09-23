@@ -42,8 +42,6 @@ public class RedisStreamConfig {
   @Autowired
   private RedisStreamService redisStreamService;
 
-  //private final RedisStreamComponent redisStreamUtil;
-
   /**
    * 創建 Redis Stream 集群消費的容器（注冊一個消費者類作為多個消費者）
    */
