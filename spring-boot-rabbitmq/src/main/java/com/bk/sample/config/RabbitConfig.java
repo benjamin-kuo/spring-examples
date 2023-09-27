@@ -38,6 +38,12 @@ public class RabbitConfig {
   public static final String QUEUE_HEADER_A = "Queue.Header.A";
   public static final String QUEUE_HEADER_B = "Queue.Header.B";
 
+  // Retry
+  public static final String QUEUE_RETRY = "Queue.Retry";
+
+  // Manual Queue
+  public static final String QUEUE_MANUEL_NAME = "Sample.Queue.Manual";
+
   @Bean
   Queue queue() {
     // durable：　RabbitMQ 重啟後　保留　or 移除 queue
@@ -72,6 +78,17 @@ public class RabbitConfig {
   @Bean
   Queue queueTopic() {
     return new Queue(QUEUE_Topic, true);
+  }
+
+  @Bean
+  Queue queueRetry() {
+    return new Queue(QUEUE_RETRY, true);
+  }
+
+  @Bean
+  Queue queueManual() {
+    // yml, acknowledge-mode: manual
+    return new Queue(QUEUE_MANUEL_NAME, true);
   }
 
   @Bean

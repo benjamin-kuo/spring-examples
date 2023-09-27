@@ -51,4 +51,17 @@ public class RabbitMQSender {
 		rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_HEADER_NAME, "", message);
 		log.info("send to exchange with header :{}", data);
 	}
+
+	// 發送到 queue for retry
+	public void sendRetry(ProductVo vo) {
+		rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_RETRY, vo);
+		log.info("send to queue for retry :{}", vo);
+	}
+
+	// 發送到 queue_manual
+	public void sendManual(ProductVo vo) {
+		rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_MANUEL_NAME, vo);
+		log.info("send to queue :{}", vo);
+	}
+
 }

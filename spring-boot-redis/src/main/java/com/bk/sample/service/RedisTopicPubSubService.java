@@ -24,6 +24,9 @@ public class RedisTopicPubSubService implements MessageListener {
   @Autowired
   private ChannelTopic customChannelTopic;
 
+  @Autowired
+  private ChannelTopic customChannelTopic1;
+
   // 收訊息, 所有 listener 的都會收到訊息, 若要只執行一次, 則要額外做 lock
   @Override
   public void onMessage(Message message, byte[] pattern) {
@@ -40,7 +43,13 @@ public class RedisTopicPubSubService implements MessageListener {
   public String pubMessage(String value) {
     //stringRedisTemplate.boundHashOps(RedisMessageListener.CUSTOM_TOPIC_ACTIONKEY).put("KEY-A", "VAULE-AAA");
     stringRedisTemplate.boundValueOps(RedisTopicMessageConfig.CUSTOM_TOPIC_ACTION_KEY).set(value);
-    stringRedisTemplate.convertAndSend(customChannelTopic.getTopic(), RedisTopicMessageConfig.CUSTOM_TOPIC_ACTION_KEY);
+
+    if("0".equals(value)){
+      stringRedisTemplate.convertAndSend(customChannelTopic.getTopic(), RedisTopicMessageConfig.CUSTOM_TOPIC_ACTION_KEY);
+    }else{
+      stringRedisTemplate.convertAndSend(customChannelTopic1.getTopic(), RedisTopicMessageConfig.CUSTOM_TOPIC_ACTION_KEY);
+    }
+
     return value;
   }
 

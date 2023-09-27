@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class RedisStreamService implements StreamListener<String, ObjectRecord<String, ProductVo>> {
+public class RedisStreamAService implements StreamListener<String, ObjectRecord<String, ProductVo>> {
 
   @Value("${server.port:8080}")
   int applicationPort;
@@ -38,7 +38,7 @@ public class RedisStreamService implements StreamListener<String, ObjectRecord<S
     log.info("message.getId():{},  getValue:{}", message.getId().getValue(), vo);
 
     switch (applicationPort) {
-      case 8080:
+      case 8081:
         // 模擬啥都沒做, , 會留在 redis 上
         log.info("do nothing");
         break;

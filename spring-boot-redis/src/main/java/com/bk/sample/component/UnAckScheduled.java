@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import com.bk.sample.service.RedisStreamService;
+import com.bk.sample.service.RedisStreamAService;
 import com.bk.sample.util.RedisLock;
 
 @Component
@@ -21,7 +21,7 @@ public class UnAckScheduled {
     RedisTemplate redisTemplate;
 
     @Autowired
-    RedisStreamService redisStreamService;
+    RedisStreamAService redisStreamService;
 
     private final String LOCK_KEY = "DO-ACK";
 

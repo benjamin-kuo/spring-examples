@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bk.sample.component.RedisStreamComponent;
 import com.bk.sample.config.RedisStreamConfig;
 import com.bk.sample.service.RedisListPushPopService;
-import com.bk.sample.service.RedisStreamService;
+import com.bk.sample.service.RedisStreamAService;
 import com.bk.sample.service.RedisTopicPubSubService;
 import com.bk.sample.vo.ProductVo;
 
@@ -32,7 +32,7 @@ public class SampleController {
   RedisStreamComponent redisStreamComponent;
 
   @Autowired
-  RedisStreamService redisStreamService;
+  RedisStreamAService redisStreamService;
 
   @GetMapping("")
   public String hello() {
