@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+  <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+  <property name="log.path" value="R:/logs/SpringLog"/>
+  <property name="log.maxHistory" value="15"/>
+  <property name="log.colorPattern"
+    value="%magenta(%d{yyyy-MM-dd HH:mm:ss}) %highlight(%-5level) %boldCyan(${springAppName:-}) %yellow(%-10.10thread) %green(%-30.30logger{30}):%-3.3L %msg%n"/>
+  <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5level ${springAppName:-} %-10.10thread %-30.30logger{30} %msg%n"/>
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${log.colorPattern}</pattern>
+    </encoder>
+  </appender>
+  <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log.path}/info/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <MaxHistory>${log.maxHistory}</MaxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${log.pattern}</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${log.path}/error/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${log.pattern}</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+  <root level="INFO">
+    <appender-ref ref="console"/>
+  </root>
+  <root level="INFO">
+    <appender-ref ref="file_info"/>
+    <appender-ref ref="file_error"/>
+  </root>
+  <!--logger name="com.alibaba.nacos" level="OFF">
+      <appender-ref ref="file_error"/>
+  </logger-->
+</configuration>

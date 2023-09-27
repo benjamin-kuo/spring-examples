@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: SpringMongo
+
+server:
+  port: 80
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        sql: DEBUG

@@ -9,8 +9,8 @@
     <relativePath/>
   </parent>
 
-  <artifactId>spring-boot-rabbitmq</artifactId>
-  <name>spring-boot-rabbitmq</name>
+  <artifactId>spring-boot-mongo</artifactId>
+  <name>spring-boot-mongo</name>
   <description>SpringBase-2.7.10</description>
 
   <properties>
@@ -56,17 +56,6 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
-    </dependency>
-
-    <!--dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-amqp</artifactId>
-      <version>2.5.3</version>
-    </dependency-->
-
-    <dependency>
-      <groupId>org.springframework.amqp</groupId>
-      <artifactId>spring-rabbit</artifactId>
     </dependency>
 
   </dependencies>
