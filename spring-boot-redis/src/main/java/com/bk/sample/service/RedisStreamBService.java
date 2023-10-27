@@ -20,7 +20,7 @@ public class RedisStreamBService implements StreamListener<String, ObjectRecord<
   @Value("${server.port:8080}")
   int applicationPort;
 
-  private final static Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private final RedisStreamComponent redisStreamComponent;
 

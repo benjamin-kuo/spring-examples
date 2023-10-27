@@ -3,7 +3,6 @@ package com.bk.sample.service;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
@@ -28,7 +27,7 @@ public class RedisStreamAService implements StreamListener<String, ObjectRecord<
   @Value("${server.port:8080}")
   int applicationPort;
 
-  private final static Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private final RedisStreamComponent redisStreamComponent;
 

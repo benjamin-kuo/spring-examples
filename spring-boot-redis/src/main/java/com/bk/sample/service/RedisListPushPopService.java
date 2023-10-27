@@ -12,7 +12,7 @@ public class RedisListPushPopService {
   @Autowired(required = false)
   StringRedisTemplate stringRedisTemplate;
 
-  private final String LIST_KEY = "RedisList";
+  private static final  String LIST_KEY = "RedisList";
 
   // 推進 List
   public Long push(String value) {
@@ -21,10 +21,8 @@ public class RedisListPushPopService {
 
   // 取出 List
   public String pop() {
-    if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(LIST_KEY))) {
-      if (stringRedisTemplate.opsForList().size(LIST_KEY) != null) {
+    if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(LIST_KEY)) && stringRedisTemplate.opsForList().size(LIST_KEY) != null) {
         return Objects.requireNonNull(stringRedisTemplate.opsForList().leftPop(LIST_KEY));
-      }
     }
     return null;
   }

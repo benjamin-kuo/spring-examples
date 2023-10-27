@@ -16,7 +16,7 @@ import com.bk.sample.config.RedisTopicMessageConfig;
 @Service
 public class RedisTopicPubSubService implements MessageListener {
 
-  private final static Logger log = LoggerFactory.getLogger(RedisTopicPubSubService.class);
+  private static final Logger log = LoggerFactory.getLogger(RedisTopicPubSubService.class);
 
   @Autowired
   StringRedisTemplate stringRedisTemplate;
